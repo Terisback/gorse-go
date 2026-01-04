@@ -83,6 +83,10 @@ func (c *GorseClient) GetNonPersonalized(ctx context.Context, name string, categ
 	return request[[]Score, any](ctx, c, "GET", c.entryPoint+path, nil)
 }
 
+func (c *GorseClient) GetItemToItem(ctx context.Context, name string, itemId string) ([]Score, error) {
+	return request[[]Score, any](ctx, c, "GET", c.entryPoint+fmt.Sprintf("/api/item-to-item/%s/%s", name, itemId), nil)
+}
+
 func (c *GorseClient) GetRecommendOffSet(ctx context.Context, userId string, category string, n, offset int) ([]string, error) {
 	return request[[]string, any](ctx, c, "GET", c.entryPoint+fmt.Sprintf("/api/recommend/%s/%s?n=%d&offset=%v", userId, category, n, offset), nil)
 }
