@@ -22,6 +22,7 @@ type Feedback struct {
 	ItemId       string    `json:"ItemId"`
 	Value        float64   `json:"Value"`
 	Timestamp    time.Time `json:"Timestamp"`
+	Comment      string    `json:"Comment"`
 }
 
 type ErrorMessage string
